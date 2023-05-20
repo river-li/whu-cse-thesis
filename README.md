@@ -71,3 +71,10 @@
 \ENDIF 
 \end{algorithmic}
 ```
+
+
+## Known Problems
+
+英文封面底部的日期部分目前需要手动设置
+
+见`whu-thesis.cls`文件中的1280行
