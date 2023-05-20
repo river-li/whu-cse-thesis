@@ -1,95 +1,73 @@
 # 武汉大学毕业论文 LaTeX 模板
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Last Commit](https://img.shields.io/github/last-commit/whutug/whu-thesis.svg)](https://github.com/whutug/whu-thesis/commits/)
-[![Overleaf](https://img.shields.io/badge/overleaf-whuthesis-green.svg)](https://www.overleaf.com/latex/templates/wuhan-university-latex-undergraduate-thesis-template/kpystysgbgmr)
-[![](https://github.com/whutug/whu-thesis/workflows/LaTeX%20Compile/badge.svg)](https://github.com/whutug/whu-thesis/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/river-li/whu-thesis.svg)](https://github.com/river-li/whu-thesis/commits/)
 
-本项目为武汉大学毕业论文 LaTeX 模板，支持本科生、硕士与博士的论文编写。
+本项目为针对国家网络安全学院硕士要求修改后的硕士毕业模板，fork自[whu-thesis](https://github.com/whutug/whu-thesis)
 
-\***由于模板更新频繁，请确保使用 whu-thesis 的最新版本，并在使用之前将所有宏包更新至最新。**
+原本的模板虽然大部分地方也是符合学校论文印制规定的，但是实际过程中有一些不成文的规矩之类的...
 
-根据[《武汉大学本科生毕业论文（设计）书写印制规范》](https://github.com/mtobeiyf/whu-thesis/files/4638713/default.pdf)、[武汉大学博士学位论文撰写及印制规格的规定](https://gs.whu.edu.cn/info/1026/1100.htm)、[武汉大学硕士学位论文印制规定](https://gs.whu.edu.cn/info/1026/1096.htm)编写，力求合规，简洁，易于实现，用户友好。
+仅针对硕士模板进行了修改
 
-## 样例展示
+有问题可见原始上游项目[README](https://github.com/whutug/whu-thesis)，本项目不做后续支持!
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/55679059-f250d300-5936-11e9-8dfe-937a64a0c6bf.png" width="800px">
-</p>
+本项目主要修改内容包括以下几点
 
-正文样例可以参照 [whu-thesis-demo](whu-thesis-demo.pdf)
+1. 增加了英文封面信息；
+2. 调整了引用网络文献时的条目顺序；
+3. 增加了硕士的成果简介页；
 
-开题报告样例可以参照 [opening-demo](opening-demo.pdf)
 
 ## 如何使用
 
-使用前请阅读[使用文档](whu-thesis-doc.pdf)
+可参考[上游项目](https://github.com/whutug/whu-thesis)
 
-推荐两种方式进行编辑和编译：
+针对计算机相关专业常见的需求————在论文中写算法/代码，可以使用以下两类方法
 
-* [本地编译](#本地编译)
-* [Overleaf 在线编译](#overleaf-在线编译)
+修改的模板增加了脚本的编号，不过是放在代码上面的（和表格类似）
 
-### 本地编译
+### 脚本代码
 
-本地编译需要安装 TeX 发行版软件, 具体可参见 [本地安装使用指南](https://github.com/mtobeiyf/whu-thesis/wiki/%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91)
+```latex
+\lstset{
+  backgroundcolor = \color{yellow!10},% 背景色：淡黄
+  basicstyle = \small\cour,           % 基本样式 + 小号字体
+  rulesepcolor= \color{gray},         % 代码块边框颜色
+  numberstyle = \small,               % 行号字体
+  numbers=none,
+  keywordstyle = \color{blue},        % 关键字颜色
+  commentstyle =\color{green!100},    % 注释颜色
+  stringstyle = \color{red!100},      % 字符串颜色
+  frame = shadowbox,                  % 用（带影子效果）方框框住代码块
+  showspaces = false,                 % 不显示空格
+  columns = fixed,                    % 字间距固定
+  %escapeinside={<@}{@>}              % 特殊自定分隔符：<@可以自己加颜色@>
+  morekeywords = {as},                % 自加新的关键字（必须前后都是空格）
+  deletendkeywords = {compile}        % 删除内定关键字；删除错误标记的关键字用deletekeywords删！
+}
 
-### Overleaf 在线编译
+\begin{lstlisting}[float,caption={Caption of your Script},breaklines=false]
+ int main(){
+     printf("Hello World\n");
+     return 0;
+ }
+\end{lstlisting}
+```
 
-[![Overleaf](https://img.shields.io/badge/overleaf-whuthesis-green.svg)](https://www.overleaf.com/latex/templates/wuhan-university-latex-undergraduate-thesis-template/kpystysgbgmr)
+### 算法
 
-[Overleaf](https://www.overleaf.com/) 是一个简洁的在线 LaTeX 编辑器。无需安装，实时共享，版本控制。该模板支持了 Overleaf 的在线编辑，可以从上面的模板链接直接创建自己的项目。
+可以用`algorithmic`包 （当然也有很多其他的可以参考[Overleaf上的一个说明](https://www.overleaf.com/learn/latex/Algorithms#The_algpseudocode_and_algorithm_packages)）
 
-使用该模板时，需要设置 `XeLaTeX` 或 `LuaLaTeX` 为编译器，具体步骤请查看 [Overleaf 在线编辑](https://github.com/mtobeiyf/whu-thesis/wiki/Overleaf-%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%BE%91)
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/55882483-319d4f00-5bd7-11e9-86ff-687106144e16.png" width="800px">
-</p>
-
-## 详细说明
-
-关于模板使用、参考文献引用等常见问题请移步 [Wiki](https://github.com/mtobeiyf/whu-thesis/wiki)
-
-## 问题反馈
-
-如果在使用中发现 *bug*，或遇到了「**与预期效果不一致**」的情况，请按照以下步骤操作：
-
-1. 阅读学校的[书写印制规范文件](https://github.com/mtobeiyf/whu-thesis/files/4638713/default.pdf)，判断是否符合要求；
-2. 前往项目 [Wiki](https://github.com/mtobeiyf/whu-thesis/wiki) 查看相关说明；
-3. 将 TeX 发行版和宏包升级到最新，并且将模板升级到 Github 上最新版本，查看问题是否已经修复；
-4. 在 [GitHub Issues](https://github.com/mtobeiyf/whu-thesis/issues) 中搜索该问题的关键词；
-5. 提出新的 [Issue](https://github.com/mtobeiyf/whu-thesis/issues)，并说明系统、TeX 版本、出现的问题等关键信息，**如果信息不全、语焉不详，您可能将不会得到很好的解答**。
-
-如果只是「**如何使用**」上的问题，可以前往 [discussions](https://github.com/whutug/whu-thesis/discussions) 进行讨论；其他问题，请尽量提供完整信息，在 issue 区提出。
-
-## 更多链接
-
-* [关于认真做好2020届本科生毕业论文（设计）答辩工作的通知](https://info.whu.edu.cn/info/1318/185710.htm)
-* [武汉大学本科生毕业论文（设计）工作管理办法](http://ugs.whu.edu.cn/info/1049/1935.htm)
-* [武汉大学毕业论文（设计）智能管理系统](http://210.42.121.231/bysj/)
-* [武汉大学博士学位论文撰写及印制规格的规定](https://gs.whu.edu.cn/info/1026/1100.htm)
-* [武汉大学硕士学位论文印制规定](https://gs.whu.edu.cn/info/1026/1096.htm)
-
-## 后续计划
-
-* 支持打印模式、课程报告模式。
-
-欢迎提交 Pull Request。
-
-## 致谢
-
-[黄正华老师的模板](http://aff.whu.edu.cn/huangzh/)
-<details>
-<summary>其它高校的相关开源项目</summary>
-
-* [bsThesisWHU](https://github.com/csarron/bsThesisWHU)
-* [HUSTPaperTemp](https://github.com/skinaze/HUSTPaperTemp)
-* [SJTUThesis](https://github.com/sjtug/SJTUThesis)
-* [ustcthesis](https://github.com/ustctug/ustcthesis)
-* [TJU-thesis-template](https://github.com/liangzhenduo0608/TJU-thesis-template)
-* [xdba-thesis](https://github.com/xdlinux/xdba-thesis)
-* [NEUBachelorThesis](https://github.com/tzaiyang/NEUBachelorThesis)
-* [ThuThesis](https://github.com/tuna/thuthesis)
-* [fduthesis](https://github.com/stone-zeng/fduthesis)
-
-</details>
+```latex
+\begin{algorithmic}
+\STATE $i\gets 10$
+\IF {$i\geq 5$} 
+  \STATE $i\gets i-1$
+\ELSE
+  \IF {$i\leq 3$}
+    \STATE $i\gets i+2$
+  \ENDIF
+\ENDIF 
+\end{algorithmic}
+```
