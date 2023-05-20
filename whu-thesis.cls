@@ -783,6 +783,7 @@
 \tl_new:N \g__whu_info_direction_tl
 \tl_new:N \g__whu_info_date_tl
 \clist_new:N \g__whu_info_advisor_clist
+\clist_new:N \g__whu_info_advisor_en_clist
 \clist_new:N \g__whu_info_keywords_clist
 \clist_new:N \g__whu_info_keywords_en_clist
 
@@ -803,6 +804,7 @@
     direction      .tl_gset:N    = \g__whu_info_direction_tl,
     date           .tl_gset:N    = \g__whu_info_date_tl,
     advisor        .clist_gset:N = \g__whu_info_advisor_clist,
+    advisor *      .clist_gset:N = \g__whu_info_advisor_en_clist,
     keywords       .clist_gset:N = \g__whu_info_keywords_clist,
     keywords *     .clist_gset:N = \g__whu_info_keywords_en_clist,
 
@@ -1240,12 +1242,47 @@
     \begin { center }
       \zihao { 2 } \g__whu_info_title_en_tl
     \end { center }
-    \vfill
+  
+    \vskip 3cm
+  
     \begin { center }
-      \zihao { 4 } \g__whu_info_author_en_tl
+    \zihao { 4 } {Thesis\ submitted\ to\\
+    \textbf{Wuhan\ University}}
     \end { center }
+  
+  
+    \begin { center }
+    \zihao{4} {in\ partial\ fulfillment\ of\ requirement\\
+    for\ the\ degree\ of\\
+    \textbf{Master\ of\ Engineering}}
+    \end { center }
+  
+    \vskip 3bp%
+  
+    \begin {center}
+      \zihao {4} by
+    \end {center}
+  
+    \begin { center }
+      \zihao { 4 } \textbf{\g__whu_info_author_en_tl}
+    \end { center }
+  
+    \vskip 3bp%
+  
+    \begin { center }
+      \zihao {4} {Supervised\ by\\}
+      \zihao {4} \textbf{Prof.\  \g__whu_info_advisor_en_clist}
+    \end { center }
+  
+    \vfill
+  
+    \begin { center }
+      \zihao {4} \textbf{May,\ 2023}
+    \end { center }
+    \vskip 0.24cm
     \__whu_new_chapter_page:
   }
+
 
 %%%% ---- 郑重声明 ---- %%%%
 \cs_new_protected:Npn \__whu_make_statesment_bachelor:
