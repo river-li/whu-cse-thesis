@@ -1472,6 +1472,7 @@
 \cs_new_protected:Npn \__whu_make_back_matter_master:
   {
     \__whu_make_bibliography:
+    \__whu_make_achievements_master:
     \__whu_make_appendix:
     \__whu_make_thanks:
   }
@@ -1549,6 +1550,27 @@
         \chapter * { 攻博期间发表的科研成果目录 }
         \phantomsection
         \addcontentsline { toc } { chapter } { 攻博期间发表的科研成果目录 }
+        \tl_if_eq:NnTF \g__whu_style_bib_style_tl { author-year }
+          {
+            \begin { enumerate } [ label = {} , left = 0 pt .. 0 pt ]
+              \file_input:V \g__whu_element_achievements_tl
+            \end { enumerate }
+          }
+          {
+            \begin { enumerate } [ label = { [ } \arabic* { ] } ]
+              \file_input:V \g__whu_element_achievements_tl
+            \end { enumerate }
+          }
+      }
+  }
+
+\cs_new_protected:Npn \__whu_make_achievements_master:
+  {
+    \tl_if_empty:NF \g__whu_element_achievements_tl
+      {
+        \chapter * { 作者在读期间科研成果简介 }
+        \phantomsection
+        \addcontentsline { toc } { chapter } { 作者在读期间科研成果简介 }
         \tl_if_eq:NnTF \g__whu_style_bib_style_tl { author-year }
           {
             \begin { enumerate } [ label = {} , left = 0 pt .. 0 pt ]
