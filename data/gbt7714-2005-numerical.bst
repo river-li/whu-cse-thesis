@@ -1816,12 +1816,12 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
+  new.block
+  year.after.author not
+    { date empty$
+        { format.date output }
         'skip$
       if$
-      format.year "year" output.check
     }
     'skip$
   if$
@@ -1831,14 +1831,6 @@ FUNCTION {electronic}
   format.mark "" output.after
   new.block
   format.address.publisher output
-  year.after.author not
-    { date empty$
-        { format.date output }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
   format.pages bbl.pages.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
